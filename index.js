@@ -1,19 +1,26 @@
 class LinkedList {
     constructor() {
-        this.HEAD = null;
+        this.head = null;
+        this.tail = null;
+        this.size = 0;
     }
 
     append(value) {
         const node = new Node(value);
-        if (this.HEAD === null) {
-            this.HEAD = node;
+        if (this.head === null) {
+            this.head = node;
+            this.tail = node;
+        } else {
+            this.tail.nextNode = node;
+            this.tail = node;
         }
+        this.size++;
     }
 }
 
 class Node {
-    constructor(value) {
-        this.value = null;
-        this.nextNode = null;
+    constructor(value, nextNode = null) {
+        this.value = value;
+        this.nextNode = nextNode;
     }
 }
