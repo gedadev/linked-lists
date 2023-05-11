@@ -16,6 +16,18 @@ class LinkedList {
         }
         this.size++;
     }
+
+    prepend(value) {
+        const node = new Node(value);
+        if (this.head === null) {
+            this.head = node;
+            this.tail = node;
+        } else {
+            node.nextNode = this.head;
+            this.head = node;
+        }
+        this.size++;
+    }
 }
 
 class Node {
