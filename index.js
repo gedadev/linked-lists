@@ -28,6 +28,18 @@ class LinkedList {
         }
         this.size++;
     }
+
+    at(index) {
+        if (index < 0 || index >= this.size) {
+            return null;
+        }
+
+        let current = this.head;
+        for (let i = 0; i < index; i++) {
+            current = current.nextNode;            
+        }
+        return current;
+    }
 }
 
 class Node {
