@@ -40,6 +40,27 @@ class LinkedList {
         }
         return current;
     }
+
+    pop() {
+        if (this.head === null) {
+            return null
+        }
+        let current = this.head;
+        let newLast = null;
+        while (current.nextNode) {
+            newLast = current;
+            current = current.nextNode;
+        }
+        if (newLast) {
+            newLast.nextNode = null;
+            this.tail = newLast;
+        } else {
+            this.head = null;
+            this.tail = null;
+        }
+        this.size--;
+        return current;
+    }
 }
 
 class Node {
