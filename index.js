@@ -29,6 +29,21 @@ class LinkedList {
         this.size++;
     }
 
+    insertAt(value, index) {
+        const node = new Node(value);
+        let current = this.at(index);
+        let prev = this.head;
+        if (current === null) {
+            return null;
+        }
+        for (let i = 0; i < index - 1; i++) {
+            prev = prev.nextNode;
+        }
+        prev.nextNode = node;
+        node.nextNode = current;
+        this.size++;
+    }
+
     at(index) {
         if (index < 0 || index >= this.size) {
             return null;
