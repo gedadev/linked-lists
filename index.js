@@ -44,6 +44,18 @@ class LinkedList {
         this.size++;
     }
 
+    removeAt(index) {
+        let current = this.at(index);
+        let prev = this.head;
+        if (current === null) {
+            return null;
+        }
+        for (let i = 0; i < index - 1; i++) {
+            prev = prev.nextNode;
+        }
+        prev.nextNode = current.nextNode;
+    }
+
     at(index) {
         if (index < 0 || index >= this.size) {
             return null;
